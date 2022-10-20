@@ -1,6 +1,10 @@
 <?php
 
+// desabilitando regra do phpcs pois as linhas de rotas costumam ser longas
+// phpcs:disable Generic.Files.LineLength.TooLong,Generic.Files.LineLength.MaxExceeded
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Web as Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [Controller\HomeController::class, 'index'])->name('index');
+
+//sobre nós
+Route::get('/sobre-nos', [Controller\AboutController::class, 'index'])->name('about.index');
+
+//contato
+Route::get('/contato', [Controller\ContactController::class, 'index'])->name('contact.index');
