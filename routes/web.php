@@ -28,7 +28,7 @@ Route::get('/sobre-nos', [Controller\AboutController::class, 'index'])->name('si
 //contato
 Route::get('/contato', [Controller\ContactController::class, 'index'])->name('site.contact');
 
-
+//rotas admin
 Route::prefix('/admin')->group(function () {
     Route::get('/clientes', function () {
         return 'Clientes';
@@ -41,4 +41,10 @@ Route::prefix('/admin')->group(function () {
     Route::get('/produtos', function () {
         return 'Produtos';
     })->name('site.products');
+});
+
+
+//fallback
+Route::fallback(function () {
+    echo 'A rota acessada não existe. <a href="'.route('site.index').'">Clique aqui</a> para acessar a página inicial.';
 });
