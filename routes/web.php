@@ -17,10 +17,28 @@ use App\Http\Controllers\Web as Controller;
 |
 */
 
-Route::get('/', [Controller\HomeController::class, 'index'])->name('index');
+//login
+
+//home
+Route::get('/', [Controller\HomeController::class, 'index'])->name('site.index');
 
 //sobre nós
-Route::get('/sobre-nos', [Controller\AboutController::class, 'index'])->name('about.index');
+Route::get('/sobre-nos', [Controller\AboutController::class, 'index'])->name('site.about');
 
 //contato
-Route::get('/contato', [Controller\ContactController::class, 'index'])->name('contact.index');
+Route::get('/contato', [Controller\ContactController::class, 'index'])->name('site.contact');
+
+
+Route::prefix('/admin')->group(function () {
+    Route::get('/clientes', function () {
+        return 'Clientes';
+    })->name('site.customers');
+
+    Route::get('/fornecedores', function () {
+        return 'Fornecedores';
+    })->name('site.suppliers');
+
+    Route::get('/produtos', function () {
+        return 'Produtos';
+    })->name('site.products');
+});
