@@ -4,7 +4,8 @@
 // phpcs:disable Generic.Files.LineLength.TooLong,Generic.Files.LineLength.MaxExceeded
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Web as Controller;
+use App\Http\Controllers\Web as Web;
+use App\Http\Controllers\Admin as Admin;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,13 +21,13 @@ use App\Http\Controllers\Web as Controller;
 //login
 
 //home
-Route::get('/', [Controller\HomeController::class, 'index'])->name('site.index');
+Route::get('/', [Web\HomeController::class, 'index'])->name('site.index');
 
 //sobre nós
-Route::get('/sobre-nos', [Controller\AboutController::class, 'index'])->name('site.about');
+Route::get('/sobre-nos', [Web\AboutController::class, 'index'])->name('site.about');
 
 //contato
-Route::get('/contato', [Controller\ContactController::class, 'index'])->name('site.contact');
+Route::get('/contato', [Web\ContactController::class, 'index'])->name('site.contact');
 
 //rotas admin
 Route::prefix('/admin')->group(function () {
@@ -34,9 +35,7 @@ Route::prefix('/admin')->group(function () {
         return 'Clientes';
     })->name('site.customers');
 
-    Route::get('/fornecedores', function () {
-        return 'Fornecedores';
-    })->name('site.suppliers');
+    Route::get('/fornecedores', [Admin\SupplierController::class, 'index'])->name('site.suppliers');
 
     Route::get('/produtos', function () {
         return 'Produtos';
