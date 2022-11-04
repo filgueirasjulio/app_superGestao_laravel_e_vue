@@ -16,4 +16,15 @@ class ContactController extends Controller
     {
         return  view('site.contact');
     }
+
+    /**
+     * store
+     *
+     * @param mixed $request
+     *
+     * @return void
+     */
+    public function store(Request $request)
+    {
+    }
 }

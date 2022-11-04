@@ -28,6 +28,7 @@ Route::get('/sobre-nos', [Web\AboutController::class, 'index'])->name('site.abou
 
 //contato
 Route::get('/contato', [Web\ContactController::class, 'index'])->name('site.contact');
+Route::post('/contato', [Web\ContactController::class, 'store'])->name('site.contact.store');
 
 //rotas admin
 Route::prefix('/admin')->group(function () {
