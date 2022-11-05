@@ -12,13 +12,15 @@ return new class () extends Migration { // phpcs:ignore
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+
+            $table->string('name')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
+            $table->integer('reason_contact')->nullable();
+            $table->text('message')->nullable();
+
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ return new class () extends Migration { // phpcs:ignore
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('contacts');
     }
 };
