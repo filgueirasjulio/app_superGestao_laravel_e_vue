@@ -16,6 +16,7 @@ return new class () extends Migration { //phpcs:ignore
             $table->id();
             $table->string('name')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

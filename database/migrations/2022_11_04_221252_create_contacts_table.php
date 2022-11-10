@@ -20,8 +20,8 @@ return new class () extends Migration { // phpcs:ignore
             $table->string('email')->nullable();
             $table->integer('reason_contact')->nullable();
             $table->text('message')->nullable();
-
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

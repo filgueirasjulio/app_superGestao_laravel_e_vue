@@ -20,6 +20,7 @@ return new class () extends Migration { // phpcs:ignore
             $table->integer('width')->nullable();
             $table->integer('height')->nullable();
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('product_id')->references('id')->on('products');
             $table->unique('product_id');

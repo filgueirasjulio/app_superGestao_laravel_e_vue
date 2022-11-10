@@ -20,6 +20,7 @@ return new class () extends Migration { // phpcs:ignore
             $table->integer('min_iventory')->nullable();
             $table->integer('max_iventory')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

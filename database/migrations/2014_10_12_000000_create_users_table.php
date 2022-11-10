@@ -20,6 +20,7 @@ return new class () extends Migration { // phpcs:ignore
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

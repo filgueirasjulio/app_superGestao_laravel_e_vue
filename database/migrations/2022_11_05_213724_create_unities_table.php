@@ -20,7 +20,7 @@ return new class () extends Migration { //phpcs:ignore
 
         //relacionamento com product_details
         Schema::table('product_details', function (Blueprint $table) {
-            $table->unsignedBigInteger('unity_id');
+            $table->unsignedBigInteger('unity_id')->after('id');
             $table->foreign('unity_id')->references('id')->on('unities');
         });
     }
